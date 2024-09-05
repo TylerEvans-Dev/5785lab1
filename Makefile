@@ -3,6 +3,8 @@ hello.txt:
 
 CPP=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-cpp
 
+all: fireware.elf
+
 main.i: main.c
 	$(CPP) main.c > main.i
 
@@ -23,10 +25,14 @@ main.o: main.s
 %.o: %.s
 	$(AS) $< -o $@
 
+LD=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-ld
+SRC=main.c second.c
+OBJS=$(patsubst %.c,%.o,$(SRC))
+
+firmware.elf: $(OBJS)
+    $(LD) -o $@ $^
 
 
-
-
-
+.PHONY: all
 
 .PHONY: clean
