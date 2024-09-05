@@ -33,6 +33,4 @@ firmware.elf: $(OBJS)
     $(LD) -o $@ $^
 
 
-.PHONY: all
-
-.PHONY: clean
+.PHONY: all clean
