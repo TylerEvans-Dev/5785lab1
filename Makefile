@@ -9,5 +9,24 @@ main.i: main.c
 clean:
 	rm -f main.i hello.txt
 
+CC=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
+AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
+
+main.s: main.i
+	$(CC) -S main.i
+
+main.o: main.s 
+	$(AS) main.s -o main.o
+
+#second.o: second.s 
+#	$(AS) second.s -o second.o
+%.o: %.s
+	$(AS) $< -o $@
+
+
+
+
+
+
 
 .PHONY: clean
