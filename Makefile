@@ -10,6 +10,12 @@ main.i: main.c
 
 clean:
 	rm -f main.i hello.txt
+	rm -f main.s main.o
+	rm -f main.exe
+	rm -f main.i
+	rm -f main.s
+	rm -f second.c
+	rm -f second.o
 
 CC=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
 AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
