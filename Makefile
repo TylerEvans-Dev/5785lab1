@@ -30,7 +30,7 @@ SRC=main.c second.c
 OBJS=$(patsubst %.c,%.o,$(SRC))
 
 firmware.elf: $(OBJS)
-    $(LD) -o $@ $^
+	$(LD) -o $@ $^
 
 
 .PHONY: all clean
