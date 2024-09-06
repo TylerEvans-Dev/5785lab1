@@ -12,20 +12,31 @@ clean:
 	rm -f main.i hello.txt
 	rm -f main.s main.o
 	rm -f main.exe
+	rm -f main.i
+	rm -f main.s
 	rm -f second.c
 	rm -f second.o
 
 CC=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
 AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
 
+main.s: main.i
+	$(CC) -S main.i
+
+#main.o: main.s
+#	$(AS) main.s -o main.o
+
+#second.o: second.s 
+#	$(AS) second.s -o second.o
 %.o: %.s
 	$(AS) $< -o $@
 
-LD=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
+LD=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-ld
 SRC=main.c second.c
 OBJS=$(patsubst %.c,%.o,$(SRC))
 
 firmware.elf: $(OBJS)
-	$(CC) -o $@ $^
+	$(LD) -o $@ $^
+
 
 .PHONY: all clean
