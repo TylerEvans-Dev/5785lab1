@@ -16,7 +16,10 @@ clean:
 	rm -f main.exe
 	rm -f main.i
 	rm -f main.s
+	rm -f second.i
+	rm -f second.s
 	rm -f second.o
+	rm -f firmware.elf
 
 CC=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
 AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
@@ -28,7 +31,7 @@ main.o: main.s
 	$(AS) main.s -o main.o
 	
 second.s: second.i
-	$(CC) -S main.i
+	$(CC) -S second.i
 
 second.o: second.s
 	$(AS) second.s -o second.o
