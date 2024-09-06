@@ -3,7 +3,7 @@ hello.txt:
 
 CPP=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-cpp
 
-all: fireware.elf
+all: firmware.elf
 
 main.i: main.c
 	$(CPP) main.c > main.i
