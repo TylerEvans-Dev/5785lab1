@@ -32,7 +32,16 @@ jobs:
             test ! -f main.s
             make hello.txt
             test -f hello.txt
-
+      - name: Test Clean monkey magic.
+        shell: bash
+        working-directory: ${{github.workspace}}/source
+        run: |
+            make clean
+            test ! -f hello.txt
+            test ! -f main.o
+            test ! -f main.i
+            test ! -f main.s
+            test ! -f firmware.elf
       - name: Test Compile
         shell: bash
         working-directory: ${{github.workspace}}/source
