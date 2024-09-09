@@ -1,9 +1,10 @@
+PICO_TOOLCHAIN_PATH ?= ~.pico-sdk/toolchain/13_2_Rel1
 all: firmware.elf
+
 hello.txt:
 	echo "hello world!" > hello.txt
 
 CPP=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-cpp
-
 
 
 main.i: main.c
