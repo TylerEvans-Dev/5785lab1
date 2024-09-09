@@ -21,7 +21,7 @@ clean:
 	rm -f second.i
 	rm -f second.s
 	rm -f second.o
-	#rm -f firmware.elf
+	rm -f firmware.elf
 
 CC=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
 AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
