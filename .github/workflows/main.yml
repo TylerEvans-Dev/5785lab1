@@ -37,7 +37,6 @@ jobs:
         shell: bash
         working-directory: ${{github.workspace}}/source
         run: |
-            ls
             test ! -f firmware.elf
             PICO_TOOLCHAIN_PATH=${{ steps.arm-none-eabi-gcc-action.outputs.path }}/.. make
             test -f firmware.elf
