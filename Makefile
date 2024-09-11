@@ -32,14 +32,14 @@ main.s: main.i
 main.o: main.s 
 	$(AS) main.s -o main.o
 	
-second.s: second.i
-	$(CC) -S second.i
+#second.s: second.i
+#	$(CC) -S second.i
 
-second.o: second.s
-	$(AS) second.s -o second.o
+#second.o: second.s
+#	$(AS) second.s -o second.o
 
-#%.o: %.s
-#	$(AS) $< -o $@
+%.o: %.s
+	$(AS) $< -o $@
 
 LD=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-ld
 SRC=main.c second.c
