@@ -4,5 +4,4 @@ main.i
 main.s
 firmware.elf
 main.exe
-second.c
 second.o 
